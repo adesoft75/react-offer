@@ -78,7 +78,7 @@ function AppBarMenu() {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0, boxShadow: 5 }}>
-                <Avatar alt="Dmitriy Ananin" src="/static/images/avatar/2.jpg" />
+                <Avatar alt="Dmitriy Ananin" src="/static/images/avatar/Iam.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
