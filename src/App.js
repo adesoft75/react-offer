@@ -1,14 +1,20 @@
 import './App.css'
 import React from 'react'
 import AppBarMenu from './AppBarMenu'
-import AppTabs from './AppTabs';
+import AppTabs from './AppTabs'
+import initData from "./templates.json"
 
 
 function App() {
-    return (
+  
+  //data = require('fs')           //считываем файл настроек
+  /* const data = fs.readFileSync('D:\ReactJS\react-offer-1\public\static\json\templates.json')
+  const initJson = JSON.parse(data) */
+
+  return (
       <div className="App">
-        <AppBarMenu />
-        <AppTabs />
+        <AppBarMenu init = {initData} />
+        <AppTabs init = {initData} />
       </div>
     );
 }
