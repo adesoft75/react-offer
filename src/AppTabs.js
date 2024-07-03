@@ -51,7 +51,7 @@ export default function AppTabs(props) {
         tabs.map((tab, index) => {
           return(
           <CustomTabPanel value={value} index={tabs.indexOf(tab)} >
-            {tab}
+            {tab.toLowerCase() + "!"}
           </CustomTabPanel>
         )})
       }
