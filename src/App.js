@@ -7,10 +7,6 @@ import initData from "./templates.json"
 
 function App() {
   
-  //data = require('fs')           //считываем файл настроек
-  /* const data = fs.readFileSync('D:\ReactJS\react-offer-1\public\static\json\templates.json')
-  const initJson = JSON.parse(data) */
-
   return (
       <div className="App">
         <AppBarMenu init = {initData} />

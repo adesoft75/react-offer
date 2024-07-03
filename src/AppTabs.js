@@ -33,11 +33,11 @@ function a11yProps(index) {
   }
 }
 
-export default function AppTabs(props) {
+export default function BasicTabs() {
   const [value, setValue] = React.useState(0)
 
   const handleChange = (event, newValue) => {
-    setValue(newValue)
+    setValue(newValue);
   }
 
   return (
@@ -50,7 +50,7 @@ export default function AppTabs(props) {
         </Tabs>
       </Box>
       <CustomTabPanel value={value} index={0}>
-        {props.init.chapters[1]}
+        Item One
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         Item Two
