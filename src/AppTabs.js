@@ -1,11 +1,11 @@
-import * as React from 'react'
-import PropTypes from 'prop-types'
-import Tabs from '@mui/material/Tabs'
-import Tab from '@mui/material/Tab'
-import Box from '@mui/material/Box'
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Box from '@mui/material/Box';
 
 function CustomTabPanel(props) {
-  const { children, value, index, ...other } = props
+  const { children, value, index, ...other } = props;
 
   return (
     <div
@@ -17,47 +17,44 @@ function CustomTabPanel(props) {
     >
       {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
     </div>
-  )
+  );
 }
 
 CustomTabPanel.propTypes = {
   children: PropTypes.node,
   index: PropTypes.number.isRequired,
   value: PropTypes.number.isRequired,
-}
+};
 
 function a11yProps(index) {
   return {
     id: `simple-tab-${index}`,
     'aria-controls': `simple-tabpanel-${index}`,
-  }
+  };
 }
 
-export default function BasicTabs() {
-  const [value, setValue] = React.useState(0)
-
+export default function AppTabs(props) {
+  const [value, setValue] = React.useState(0);
+  const tabs = props.init.chapters
   const handleChange = (event, newValue) => {
     setValue(newValue);
-  }
+  };
 
   return (
     <Box sx={{ width: '100%' }}>
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
         <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
+          {tabs.map(tab => <Tab label={tab} key={tab} {...a11yProps(tabs.indexOf(tab))} />)}
         </Tabs>
       </Box>
-      <CustomTabPanel value={value} index={0}>
-        Item One
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={1}>
-        Item Two
-      </CustomTabPanel>
-      <CustomTabPanel value={value} index={2}>
-        Item Three
-      </CustomTabPanel>
+      {
+        tabs.map((tab, index) => {
+          return(
+          <CustomTabPanel value={value} index={tabs.indexOf(tab)} >
+            {tab}
+          </CustomTabPanel>
+        )})
+      }
     </Box>
   )
 }
