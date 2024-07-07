@@ -37,9 +37,7 @@ function a11yProps(index) {
 export default function AppTabs(props) {
   const [value, setValue] = React.useState(0)
   const tabs = props.init.chapters
-  const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
+  const handleChange = (event, newValue) => {setValue(newValue)}
 
   return (
     <Box sx={{ width: '100%' }}>
@@ -51,9 +49,9 @@ export default function AppTabs(props) {
       {
         tabs.map((tab, index) => {
           return(
-          <CustomTabPanel value={value} index={tabs.indexOf(tab)} >
+          <CustomTabPanel value={value} index={tabs.indexOf(tab)} key={tab} >
             {tab.toLowerCase() + "!"}
-             {/*<Chapter01 init={props}/> */}
+            <Chapter01 init={props.init.variants} />
           </CustomTabPanel>
         )})
       }

@@ -7,7 +7,7 @@ function ComboBox(props) {
       <Autocomplete
         disablePortal
         id="combo-box-demo"
-        options={props.variants[0].v0001}
+        options={props.options}
         sx={{ width: 300 }}
         renderInput={(params) => <TextField {...params} label="Movie" />}
       />
@@ -15,13 +15,14 @@ function ComboBox(props) {
   }
 
 export default function Chapter01(props) {
-    const [value, setValue] = React.useState(0)
-    const tabs = props.init.chapters
 
     return (
       <div>
-        <ComboBox props = {props} >
-        </ComboBox>
+      {console.log(props)}
+      <ComboBox options={props.init[0].v0001} >
+      </ComboBox>
+      <ComboBox options={props.init[0].v0002} >
+      </ComboBox>
       </div>
     )
   }
