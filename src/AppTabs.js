@@ -51,9 +51,7 @@ export default function AppTabs(props) {
         tabs.map((tab, index) => {
           return(
           <CustomTabPanel value={value} index={tabs.indexOf(tab)} key={tab} >
-            {/* <AppChapters init={props.init} index={props.init.requisites} /> */}
-            {tab.toLowerCase() + "!"}
-            {/* <Chapter01 init={props.init.requisites} /> */}
+            <AppChapters init={props.init} index={tabs.indexOf(tab)} />
           </CustomTabPanel>
         )})
       }

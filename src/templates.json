@@ -2,7 +2,7 @@
   "p_name": "react-offer",
   "date": "08.07.2024",
   "author": true,
-  "chapters": ["Свод","Реквизиты","Сигналы","ПИР","Обследование"],
+  "chapters": ["Свод цен","Реквизиты","Сигналы","ПИР","Обследование"],
   "requisites": [
     {
       "name": "Проект",
@@ -24,14 +24,54 @@
     {
       "name": "Конечный заказчик",
       "variants":
-      ["СХП",
-      "ЗСНХ"]
+      [
+        "СХП",
+        "ЗСНХ"
+      ]
     },
     {
       "name": "Подразделение",
       "variants":
-      ["Цех1",
-       "Цех2"]
+      [
+        "Цех1",
+        "Цех2"
+      ]
+    }
+  ],
+  "items": [
+    {
+      "num": "1", "parent": "0",
+      "name": "ПИР",
+      "value": "1000000",
+      "valueUnit": "1000000",
+      "duration": "6",
+      "durationUnit": "M",
+      "durationDepend": "0"
+    },
+    {
+      "num": "2", "parent": "1",
+      "name": "Разработка РД",
+      "value": "1200000",
+      "valueUnit": "1000000",
+      "duration": "6",
+      "durationUnit": "M",
+      "durationDepend": "После получения всех необходимых исходных данных"
+    },
+    {
+      "num": "3", "parent": "1",
+      "name": "Разработка ППО",
+      "value": "1000000",
+      "duration": "6",
+      "durationUnit": "M",
+      "durationDepend": "2"
+    },
+    {
+      "num": "4", "parent": "0",
+      "name": "СМР",
+      "value": "1000000",
+      "duration": "6",
+      "durationUnit": "M",
+      "durationDepend": "После подготовки оснований для установки шкафов"
     }
   ]
 }
