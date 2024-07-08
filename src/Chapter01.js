@@ -9,20 +9,21 @@ function ComboBox(props) {
         id="combo-box-demo"
         options={props.options}
         sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="Movie" />}
+        renderInput={(params) => <TextField {...params} label={props.name} />}
       />
     );
   }
 
 export default function Chapter01(props) {
-
+    const reqs = props.init
     return (
       <div>
-      {console.log(props)}
-      <ComboBox options={props.init[0].v0001} >
-      </ComboBox>
-      <ComboBox options={props.init[0].v0002} >
-      </ComboBox>
+        {reqs.map((req, index) => {
+          return(
+            <ComboBox options={reqs[index].variants} name={reqs[index].name} key={index} >
+            </ComboBox>  
+          )
+        })}
       </div>
     )
   }
