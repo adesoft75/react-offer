@@ -4,6 +4,7 @@ import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
 import Chapter01 from './Chapter01'
+import AppChapters from './AppChapters'
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props
@@ -50,8 +51,9 @@ export default function AppTabs(props) {
         tabs.map((tab, index) => {
           return(
           <CustomTabPanel value={value} index={tabs.indexOf(tab)} key={tab} >
+            {/* <AppChapters init={props.init} index={props.init.requisites} /> */}
             {tab.toLowerCase() + "!"}
-            <Chapter01 init={props.init.requisites} />
+            {/* <Chapter01 init={props.init.requisites} /> */}
           </CustomTabPanel>
         )})
       }

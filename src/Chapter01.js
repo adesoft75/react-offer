@@ -8,7 +8,7 @@ function ComboBox(props) {
         disablePortal
         id="combo-box-demo"
         options={props.options}
-        sx={{ width: 300 }}
+        sx={{ width: 300, mb: 1 }}
         renderInput={(params) => <TextField {...params} label={props.name} />}
       />
     );
