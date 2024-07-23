@@ -35,11 +35,20 @@ function Row(props) {
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={1}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
+        <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                SubItems
-              </Typography>
+              <Table size="small" aria-label="purchases">
+              
+                <TableBody>
+                  {props.rows.filter((row) => row.parent == props.index).map((row) => (
+                    <TableRow key={row.num}>
+                      <TableCell component="th" scope="row"> {row.name} </TableCell>
+                      <TableCell>{row.value}</TableCell>
+                      <TableCell align="right">{row.duration}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
             </Box>
           </Collapse>
         </TableCell>
@@ -63,7 +72,7 @@ function CollapsibleTable(props) {
         </TableHead>
         <TableBody>
           {rows.filter((row) => row.parent == 0).map((item) => (
-            <Row key={item.name} row={item} />
+            <Row key={item.num} index={item.num} row={item} rows={props.items} />
           ))}
         </TableBody>
       </Table>
