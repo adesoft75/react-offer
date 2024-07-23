@@ -43,7 +43,6 @@
       "num": "1", "parent": "0",
       "name": "ПИР",
       "value": "1000000",
-      "valueUnit": "1000000",
       "duration": "6",
       "durationUnit": "M",
       "durationDepend": "0"
@@ -52,7 +51,6 @@
       "num": "2", "parent": "1",
       "name": "Разработка РД",
       "value": "1200000",
-      "valueUnit": "1000000",
       "duration": "6",
       "durationUnit": "M",
       "durationDepend": "После получения всех необходимых исходных данных"

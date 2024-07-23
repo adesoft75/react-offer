@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Tabs from '@mui/material/Tabs'
 import Tab from '@mui/material/Tab'
 import Box from '@mui/material/Box'
-import Chapter01 from './Chapter01'
 import AppChapters from './AppChapters'
 
 function CustomTabPanel(props) {
