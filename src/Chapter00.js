@@ -29,18 +29,16 @@ function Row(props) {
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row">
-          {row.name} {row.value} {row.duration}
-        </TableCell>
-        <TableCell align="right">{row.calories}</TableCell>
-        <TableCell align="right">{row.fat}</TableCell>
+        <TableCell component="th" scope="row"> {row.name} </TableCell>
+        <TableCell align="right">{row.duration}</TableCell>
+        <TableCell align="right">{row.value}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={1}>
           <Collapse in={open} timeout="auto" unmountOnExit>
             <Box sx={{ margin: 1 }}>
               <Typography variant="h6" gutterBottom component="div">
-                History
+                SubItems
               </Typography>
             </Box>
           </Collapse>
@@ -64,7 +62,7 @@ function CollapsibleTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((item) => (
+          {rows.filter((row) => row.parent == 0).map((item) => (
             <Row key={item.name} row={item} />
           ))}
         </TableBody>

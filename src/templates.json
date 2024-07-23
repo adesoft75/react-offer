@@ -42,8 +42,8 @@
     {
       "num": "1", "parent": "0",
       "name": "ПИР",
-      "value": "1000000",
-      "duration": "6",
+      "value": "500000",
+      "duration": "4",
       "durationUnit": "M",
       "durationDepend": "0"
     },
@@ -58,8 +58,8 @@
     {
       "num": "3", "parent": "1",
       "name": "Разработка ППО",
-      "value": "1000000",
-      "duration": "6",
+      "value": "1250000",
+      "duration": "5",
       "durationUnit": "M",
       "durationDepend": "2"
     },
@@ -67,7 +67,7 @@
       "num": "4", "parent": "0",
       "name": "СМР",
       "value": "1000000",
-      "duration": "6",
+      "duration": "7",
       "durationUnit": "M",
       "durationDepend": "После подготовки оснований для установки шкафов"
     }
