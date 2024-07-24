@@ -1,5 +1,4 @@
 import * as React from 'react'
-import Box from '@mui/material/Box'
 import Collapse from '@mui/material/Collapse'
 import IconButton from '@mui/material/IconButton'
 import Table from '@mui/material/Table'
@@ -8,7 +7,6 @@ import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
-import Typography from '@mui/material/Typography'
 import Paper from '@mui/material/Paper'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
@@ -16,11 +14,10 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 function Row(props) {
   const { row } = props
   const [open, setOpen] = React.useState(false)
-
   return (
     <React.Fragment>
       <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
-        <TableCell>
+        <TableCell >
           <IconButton
             aria-label="expand row"
             size="small"
@@ -30,16 +27,14 @@ function Row(props) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row"> {row.name} </TableCell>
-        <TableCell align="right">{row.duration}</TableCell>
+        <TableCell align="right">{row.duration} </TableCell>
         <TableCell align="right">{row.value}</TableCell>
       </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={1}>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              <Table size="small" aria-label="purchases">
+      <TableRow sx={{border: 0}}>
+        <TableCell style={{paddingBottom: 0, paddingTop: 0, border: 0}}>
+        <Collapse sx={{border: 0}} in={open} timeout="auto" unmountOnExit>
               
-                <TableBody>
+                <TableBody sx={{border: 0}} >
                   {props.rows.filter((row) => row.parent == props.index).map((row) => (
                     <TableRow key={row.num}>
                       <TableCell component="th" scope="row"> {row.name} </TableCell>
@@ -48,8 +43,7 @@ function Row(props) {
                     </TableRow>
                   ))}
                 </TableBody>
-              </Table>
-            </Box>
+              
           </Collapse>
         </TableCell>
       </TableRow>
