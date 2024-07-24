@@ -44,7 +44,7 @@
       "name": "ПИР",
       "value": "500000",
       "duration": "4",
-      "durationUnit": "M",
+      "durationUnit": "мес.",
       "durationDepend": "0"
     },
     {
@@ -52,7 +52,7 @@
       "name": "Разработка РД",
       "value": "1200000",
       "duration": "6",
-      "durationUnit": "M",
+      "durationUnit": "мес.",
       "durationDepend": "После получения всех необходимых исходных данных"
     },
     {
@@ -60,7 +60,7 @@
       "name": "Разработка ППО",
       "value": "1250000",
       "duration": "5",
-      "durationUnit": "M",
+      "durationUnit": "мес.",
       "durationDepend": "2"
     },
     {
@@ -68,7 +68,15 @@
       "name": "СМР",
       "value": "1000000",
       "duration": "7",
-      "durationUnit": "M",
+      "durationUnit": "мес.",
+      "durationDepend": "После подготовки оснований для установки шкафов"
+    },
+    {
+      "num": "5", "parent": "4",
+      "name": "Сборка шкафов",
+      "value": "1000000",
+      "duration": "7",
+      "durationUnit": "мес.",
       "durationDepend": "После подготовки оснований для установки шкафов"
     }
   ]

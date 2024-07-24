@@ -27,23 +27,22 @@ function Row(props) {
           </IconButton>
         </TableCell>
         <TableCell component="th" scope="row"> {row.name} </TableCell>
-        <TableCell align="right">{row.duration} </TableCell>
+        <TableCell align="right">{row.duration + " " + row.durationUnit} </TableCell>
         <TableCell align="right">{row.value}</TableCell>
       </TableRow>
       <TableRow sx={{border: 0}}>
         <TableCell style={{paddingBottom: 0, paddingTop: 0, border: 0}}>
-        <Collapse sx={{border: 0}} in={open} timeout="auto" unmountOnExit>
-              
-                <TableBody sx={{border: 0}} >
-                  {props.rows.filter((row) => row.parent == props.index).map((row) => (
-                    <TableRow key={row.num}>
-                      <TableCell component="th" scope="row"> {row.name} </TableCell>
-                      <TableCell>{row.value}</TableCell>
-                      <TableCell align="right">{row.duration}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              
+        <Collapse in={open} timeout="auto" unmountOnExit>
+          <TableBody sx={{border: 0}} >
+            {props.rows.filter((row) => row.parent == props.index).map((row) => (
+              <TableRow key={row.num}>
+                <TableCell />
+                <TableCell component="th" scope="row"> {row.name} </TableCell>
+                <TableCell align="right">{row.duration + " " + row.durationUnit}</TableCell>
+                <TableCell align="right">{row.value}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
           </Collapse>
         </TableCell>
       </TableRow>
@@ -58,10 +57,10 @@ function CollapsibleTable(props) {
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-            <TableCell />
-            <TableCell>Наименование разделов, объектов, работ и затрат</TableCell>
-            <TableCell align="right">Срок выполнения работ</TableCell>
-            <TableCell align="right">Стоимость, Рубли без НДС</TableCell>
+          <TableCell />
+            <TableCell><h3>Наименование разделов, объектов, работ и затрат</h3></TableCell>
+            <TableCell align="right"><h3>Срок выполнения работ</h3></TableCell>
+            <TableCell align="right"><h3>Стоимость, Рубли без НДС</h3></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
