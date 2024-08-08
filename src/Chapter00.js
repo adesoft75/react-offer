@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Collapse from '@mui/material/Collapse'
+import NavigateNext from '@mui/icons-material/NavigateNext'
 import IconButton from '@mui/material/IconButton'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -16,13 +17,9 @@ function Row(props) {
   const [open, setOpen] = React.useState(false)
   return (
     <React.Fragment>
-      <TableRow sx={{ '& > *': { borderBottom: 'unset' } }}>
+      <TableRow sx={{ '& > *': { borderBottom: 'unset' }}}>
         <TableCell >
-          <IconButton
-            aria-label="expand row"
-            size="small"
-            onClick={() => setOpen(!open)}
-          >
+          <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)} >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
@@ -30,19 +27,23 @@ function Row(props) {
         <TableCell align="right">{row.duration + " " + row.durationUnit} </TableCell>
         <TableCell align="right">{row.value}</TableCell>
       </TableRow>
-      <TableRow sx={{border: 0}}>
-        <TableCell style={{paddingBottom: 0, paddingTop: 0, border: 0}}>
-        <Collapse in={open} timeout="auto" unmountOnExit>
-          <TableBody sx={{border: 0}} >
-            {props.rows.filter((row) => row.parent == props.index).map((row) => (
-              <TableRow key={row.num}>
-                <TableCell />
-                <TableCell component="th" scope="row"> {row.name} </TableCell>
-                <TableCell align="right">{row.duration + " " + row.durationUnit}</TableCell>
-                <TableCell align="right">{row.value}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
+      <TableRow>
+        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
+          <Collapse in={open} timeout="auto" unmountOnExit >
+            <TableBody >
+              {props.rows.filter((row) => row.parent === props.index).map((row) => (
+                <TableRow key={row.num}>
+                  <TableCell>
+                    <IconButton size="small" >
+                      <NavigateNext/>
+                    </IconButton>  
+                  </TableCell>
+                  <TableCell component="th" scope="row"> {row.name} </TableCell>
+                  <TableCell align="right">{row.duration + " " + row.durationUnit}</TableCell>
+                  <TableCell align="right">{row.value}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
           </Collapse>
         </TableCell>
       </TableRow>

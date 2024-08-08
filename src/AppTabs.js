@@ -36,7 +36,7 @@ function a11yProps(index) {
 
 export default function AppTabs(props) {
   const [value, setValue] = React.useState(0)
-  const tabs = props.init.chapters.concat(props.init.items.filter((item) => item.parent == 0).map((item) => item.name))
+  const tabs = props.init.chapters.concat(props.init.items.filter((item) => item.parent === 0).map((item) => item.name))
   const handleChange = (event, newValue) => {setValue(newValue)}
 
   return (
