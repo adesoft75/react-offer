@@ -18,26 +18,26 @@ function Row(props) {
   return (
     <React.Fragment>
       <TableRow sx={{ '& > *': { borderBottom: 'unset' }}}>
-        <TableCell sx={{border: 1, borderColor: "blue", width: "3%"}} >
+        <TableCell sx={{width: "3%"}} >
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)} >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell sx={{width: "57%"}} component="th" scope="row"> {row.name} </TableCell>
-        <TableCell sx={{width: "10%"}} align="left">{row.duration + " " + row.durationUnit} </TableCell>
-        <TableCell sx={{width: "30%"}} align="left">{row.value}</TableCell>
+        <TableCell sx={{width: "57%"}} component="th" scope="row"> <h3>{row.name}</h3> </TableCell>
+        <TableCell sx={{width: "10%"}} align="left"><h3>{row.duration + " " + row.durationUnit}</h3> </TableCell>
+        <TableCell sx={{width: "30%"}} align="left"><h3>{row.value}</h3></TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit >
               {props.rows.filter((row) => row.parent === props.index).map((row) => (
                 <TableRow key={row.num}>
-                  <TableCell sx={{border: 1, borderColor: "red", width: "2%"}} >
+                  <TableCell sx={{width: "2%"}} >
                     <IconButton size="small" >
                       <NavigateNext/>
                     </IconButton>  
                   </TableCell>
-                  <TableCell sx={{width: "58%"}} component="th" scope="row"> {row.name} </TableCell>
+                  <TableCell sx={{width: "58%"}} component="th" scope="row">{row.name}</TableCell>
                   <TableCell sx={{width: "10%"}} align="left">{row.duration + " " + row.durationUnit}</TableCell>
                   <TableCell sx={{width: "30%"}} align="left">{row.value}</TableCell>
                 </TableRow>
@@ -57,9 +57,9 @@ function CollapsibleTable(props) {
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell><h3>Наименование разделов, объектов, работ и затрат</h3></TableCell>
-            <TableCell align="left"><h3>Срок выполнения работ</h3></TableCell>
-            <TableCell align="left"><h3>Стоимость, Рубли без НДС</h3></TableCell>
+            <TableCell><h2>Наименование разделов, объектов, работ и затрат</h2></TableCell>
+            <TableCell align="left"><h2>Срок выполнения</h2></TableCell>
+            <TableCell align="left"><h2>Стоимость, Рубли без НДС</h2></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
