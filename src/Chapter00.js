@@ -18,32 +18,30 @@ function Row(props) {
   return (
     <React.Fragment>
       <TableRow sx={{ '& > *': { borderBottom: 'unset' }}}>
-        <TableCell >
+        <TableCell sx={{border: 1, borderColor: "blue", width: "3%"}} >
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)} >
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
-        <TableCell component="th" scope="row"> {row.name} </TableCell>
-        <TableCell align="right">{row.duration + " " + row.durationUnit} </TableCell>
-        <TableCell align="right">{row.value}</TableCell>
+        <TableCell sx={{width: "57%"}} component="th" scope="row"> {row.name} </TableCell>
+        <TableCell sx={{width: "10%"}} align="left">{row.duration + " " + row.durationUnit} </TableCell>
+        <TableCell sx={{width: "30%"}} align="left">{row.value}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
           <Collapse in={open} timeout="auto" unmountOnExit >
-            <TableBody >
               {props.rows.filter((row) => row.parent === props.index).map((row) => (
                 <TableRow key={row.num}>
-                  <TableCell>
+                  <TableCell sx={{border: 1, borderColor: "red", width: "2%"}} >
                     <IconButton size="small" >
                       <NavigateNext/>
                     </IconButton>  
                   </TableCell>
-                  <TableCell component="th" scope="row"> {row.name} </TableCell>
-                  <TableCell align="right">{row.duration + " " + row.durationUnit}</TableCell>
-                  <TableCell align="right">{row.value}</TableCell>
+                  <TableCell sx={{width: "58%"}} component="th" scope="row"> {row.name} </TableCell>
+                  <TableCell sx={{width: "10%"}} align="left">{row.duration + " " + row.durationUnit}</TableCell>
+                  <TableCell sx={{width: "30%"}} align="left">{row.value}</TableCell>
                 </TableRow>
               ))}
-            </TableBody>
           </Collapse>
         </TableCell>
       </TableRow>
@@ -58,10 +56,10 @@ function CollapsibleTable(props) {
       <Table aria-label="collapsible table">
         <TableHead>
           <TableRow>
-          <TableCell />
+            <TableCell />
             <TableCell><h3>Наименование разделов, объектов, работ и затрат</h3></TableCell>
-            <TableCell align="right"><h3>Срок выполнения работ</h3></TableCell>
-            <TableCell align="right"><h3>Стоимость, Рубли без НДС</h3></TableCell>
+            <TableCell align="left"><h3>Срок выполнения работ</h3></TableCell>
+            <TableCell align="left"><h3>Стоимость, Рубли без НДС</h3></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
