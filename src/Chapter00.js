@@ -12,6 +12,12 @@ import Paper from '@mui/material/Paper'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 
+function valueSeparate(items, num, type) {    // ***определяем долю (срока выполнения или стоимости) в разделе
+  let value = 0
+  
+  return value
+}
+
 function Row(props) {
   const { row } = props
   const [open, setOpen] = React.useState(false)
