@@ -25,11 +25,10 @@ function Row(props) {
         </TableCell>
         <TableCell sx={{width: "57%"}} component="th" scope="row"> <h3>{row.name}</h3> </TableCell>
         <TableCell sx={{width: "10%"}} align="left"><h3>{
-          props.rows.filter((r) => r.parent === props.index).reduce((accumulator,r) => accumulator + Number(r.duration),0) + " " + row.durationUnit
+          (props.rows.filter((r) => r.parent === props.index).reduce((accumulator,r) => accumulator + Number(r.duration || 0),0) || row.duration) + " " + row.durationUnit
         }</h3> </TableCell>
-
         <TableCell sx={{width: "30%"}} align="left"><h3>{
-          props.rows.filter((r) => r.parent === props.index).reduce((accumulator,r) => accumulator + Number(r.value),0)
+          props.rows.filter((r) => r.parent === props.index).reduce((accumulator,r) => accumulator + Number(r.value || 0),0) || row.value
         }</h3></TableCell>
       </TableRow>
       <TableRow>

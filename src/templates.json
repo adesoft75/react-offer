@@ -66,7 +66,7 @@
     {
       "num": "4", "parent": "0",
       "name": "СМР",
-      "value": "1000000",
+      "value": "2000000",
       "duration": "7",
       "durationUnit": "мес.",
       "durationDepend": "после подготовки оснований для установки шкафов"
