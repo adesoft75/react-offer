@@ -59,7 +59,7 @@
       "num": "3", "parent": "1",
       "name": "Разработка ППО",
       "value": "1250000",
-      "duration": "5",
+      "duration": "8",
       "durationUnit": "мес.",
       "durationDepend": "2"
     },
@@ -74,7 +74,7 @@
     {
       "num": "5", "parent": "4",
       "name": "Сборка шкафов",
-      "value": "1000500",
+      "value": "100500",
       "duration": "7",
       "durationUnit": "мес.",
       "durationDepend": "после подготовки оснований для установки шкафов"

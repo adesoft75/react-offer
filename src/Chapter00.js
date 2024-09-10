@@ -24,7 +24,10 @@ function Row(props) {
           </IconButton>
         </TableCell>
         <TableCell sx={{width: "57%"}} component="th" scope="row"> <h3>{row.name}</h3> </TableCell>
-        <TableCell sx={{width: "10%"}} align="left"><h3>{row.duration + " " + row.durationUnit}</h3> </TableCell>
+        <TableCell sx={{width: "10%"}} align="left"><h3>{
+          props.rows.filter((r) => r.parent === props.index).reduce((accumulator,r) => accumulator + Number(r.duration),0) + " " + row.durationUnit
+        }</h3> </TableCell>
+
         <TableCell sx={{width: "30%"}} align="left"><h3>{
           props.rows.filter((r) => r.parent === props.index).reduce((accumulator,r) => accumulator + Number(r.value),0)
         }</h3></TableCell>
@@ -74,10 +77,4 @@ function CollapsibleTable(props) {
   )
 }
 
-export default function Chapter00(props) {
-    return (
-      <div>
-        <CollapsibleTable items={props.items} />
-      </div>
-    )
-  }
+export default function Chapter00(props) {<CollapsibleTable items={props.items} />}
