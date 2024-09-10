@@ -7,7 +7,7 @@ export default function AppChapters(props) {
     
     return (
       <Box sx={{ width: '100%' }}>
-        {props.index === 0 && <Chapter00 init={props.init.items} />}
+        {props.index === 0 && <Chapter00 items={props.init.items} />}
         {props.index === 1 && <Chapter01 init={props.init.requisites} />}
       </Box>
     )

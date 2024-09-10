@@ -12,12 +12,6 @@ import Paper from '@mui/material/Paper'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp'
 
-function valueSeparate(items, num, type) {    // ***определяем долю (срока выполнения или стоимости) в разделе
-  let value = 0
-  
-  return value
-}
-
 function Row(props) {
   const { row } = props
   const [open, setOpen] = React.useState(false)
@@ -31,7 +25,9 @@ function Row(props) {
         </TableCell>
         <TableCell sx={{width: "57%"}} component="th" scope="row"> <h3>{row.name}</h3> </TableCell>
         <TableCell sx={{width: "10%"}} align="left"><h3>{row.duration + " " + row.durationUnit}</h3> </TableCell>
-        <TableCell sx={{width: "30%"}} align="left"><h3>{row.value}</h3></TableCell>
+        <TableCell sx={{width: "30%"}} align="left"><h3>{
+          props.rows.filter((r) => r.parent === props.index).reduce((accumulator,r) => accumulator + Number(r.value),0)
+        }</h3></TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -44,7 +40,8 @@ function Row(props) {
                     </IconButton>  
                   </TableCell>
                   <TableCell sx={{width: "58%"}} component="th" scope="row">{row.name}</TableCell>
-                  <TableCell sx={{width: "10%"}} align="left">{row.duration + " " + row.durationUnit}</TableCell>
+                  <TableCell sx={{width: "10%"}} align="left">{row.duration + " " + row.durationUnit + " " + 
+                    (Number.isInteger(Number (row.durationDepend)) ? "после выполнения п. " + row.durationDepend : row.durationDepend)}</TableCell>
                   <TableCell sx={{width: "30%"}} align="left">{row.value}</TableCell>
                 </TableRow>
               ))}
@@ -56,7 +53,6 @@ function Row(props) {
 }
 
 function CollapsibleTable(props) {
-  const rows = props.items
   return (
     <TableContainer component={Paper}>
       <Table aria-label="collapsible table">
@@ -69,7 +65,7 @@ function CollapsibleTable(props) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.filter((row) => row.parent == 0).map((item) => (
+          {props.items.filter((row) => row.parent == 0).map((item) => (
             <Row key={item.num} index={item.num} row={item} rows={props.items} />
           ))}
         </TableBody>
@@ -79,10 +75,9 @@ function CollapsibleTable(props) {
 }
 
 export default function Chapter00(props) {
-    const items = props.init
     return (
       <div>
-        <CollapsibleTable items={items} />
+        <CollapsibleTable items={props.items} />
       </div>
     )
   }
