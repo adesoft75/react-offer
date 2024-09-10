@@ -63,7 +63,7 @@ function CollapsibleTable(props) {
             <TableCell />
             <TableCell><h2>Наименование разделов, объектов, работ и затрат</h2></TableCell>
             <TableCell align="left"><h2>Срок выполнения</h2></TableCell>
-            <TableCell align="left"><h2>Стоимость, Рубли без НДС</h2></TableCell>
+            <TableCell align="left"><h2>Стоимость, руб. без НДС</h2></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
