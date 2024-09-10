@@ -77,4 +77,4 @@ function CollapsibleTable(props) {
   )
 }
 
-export default function Chapter00(props) {<CollapsibleTable items={props.items} />}
+export default function Chapter00(props) {return (<CollapsibleTable items={props.items} />)}
