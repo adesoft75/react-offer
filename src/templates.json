@@ -51,7 +51,7 @@
       "num": "2", "parent": "1",
       "name": "Разработка РД",
       "value": "1200000",
-      "duration": "6",
+      "duration": "5",
       "durationUnit": "мес.",
       "durationDepend": "после получения всех необходимых исходных данных"
     },
@@ -59,7 +59,7 @@
       "num": "3", "parent": "1",
       "name": "Разработка ППО",
       "value": "1250000",
-      "duration": "8",
+      "duration": "7",
       "durationUnit": "мес.",
       "durationDepend": "2"
     },

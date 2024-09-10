@@ -43,7 +43,12 @@ function Row(props) {
                   </TableCell>
                   <TableCell sx={{width: "58%"}} component="th" scope="row">{row.name}</TableCell>
                   <TableCell sx={{width: "10%"}} align="left">{row.duration + " " + row.durationUnit + " " + 
-                    (Number.isInteger(Number (row.durationDepend)) ? "после выполнения п. " + row.durationDepend : row.durationDepend)}</TableCell>
+                    (Number.isInteger(Number (row.durationDepend)) ? "после выполнения п. " + '"' +
+                    
+                    props.rows.find(function (r) {return r.num === row.durationDepend}).name
+                    //row.durationDepend 
+
+                    + '"' : row.durationDepend)}</TableCell>
                   <TableCell sx={{width: "30%"}} align="left">{row.value}</TableCell>
                 </TableRow>
               ))}
